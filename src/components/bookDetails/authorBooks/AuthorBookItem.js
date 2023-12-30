@@ -4,10 +4,7 @@ import {
   Image,
   Stack,
   Heading,
-  Box,
   HStack,
-  VStack,
-  Center,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import Stars from "../Stars";
@@ -28,7 +25,7 @@ function AuthorBookItem(props) {
             justifyContent="space-between"
             gap="24px"
           >
-            <Link href={`/books/${props.bookid}`}>
+            <Link href={`/books/${props.id}`}>
               <Image
                 src={props.bookcoverimage}
                 width="148px"
@@ -47,7 +44,7 @@ function AuthorBookItem(props) {
               >
                 {props.bookname}
               </Heading>
-              <Stars book_id={props.book_id}/>     
+              <Stars book_id={props.id}/>     
                  <Stack rowGap="20px" flexGrow="1">
                 <span className="text-[16px] font-normal text-[#000015]">
                   زبان:&nbsp;{props.language}

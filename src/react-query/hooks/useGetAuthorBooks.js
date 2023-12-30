@@ -1,10 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { API_ENDPOINTS } from "@/utils/api/endpoints";
 import axios from "axios";
-import useShowToast from "@/components/ui/useShowToast";
 
 const useGetAuthorBooks = (authorName) => {
-  const showToast = useShowToast();
   return useQuery({
     queryKey: ["author-books"],
     queryFn: () =>
@@ -14,6 +11,7 @@ const useGetAuthorBooks = (authorName) => {
         .catch((err) => {
           
         }),
+    enabled:authorName?true:false
   });
 };
 
