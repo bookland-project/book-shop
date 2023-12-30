@@ -1,0 +1,130 @@
+import React from "react";
+import HorizontalBooks from "../horizontalBookList/HorizontalBooks";
+import { Flex, Heading } from "@chakra-ui/react";
+import Link from "next/link";
+import BestSelling from "./BestSelling";
+
+function HomePage() {
+  return (
+    <div className="w-full pb-[60px]">
+      <div className=" h-[300px]">
+        <div className="w-[80%] mx-auto"></div>
+      </div>
+      <BestSelling/>
+      <Flex
+        flexDirection="column"
+        gap="30px"
+        width="80%"
+        alignItems="center"
+        marginX="auto"
+        marginTop="80px"
+      >
+        <HorizontalBooks header="کتاب های رایگان" searchKey="free" />
+        <HorizontalBooks header="تازه های متنی" searchKey="recently-added" />
+        <div className=" w-full h-[300px] relative rounded-2xl overflow-hidden">
+          <img
+            className="w-full h-full brightness-[0.3] absolute z-[-1]"
+            src="https://www.gih.se/images/18.2144ef671843bac72208af/1667483980469/GIH_gamla_anatomibocker.jpg"
+          />
+          <div className="px-[60px] pt-[40px] pb-[30px] h-full">
+            <Flex flexDir="column" justifyContent="space-between" height="full">
+              <Heading
+                color="white"
+                fontFamily="Vazirmatn"
+                fontWeight="semibold"
+                fontSize="35px"
+              >
+                کتاب های زبان اصلی
+              </Heading>
+              <div className="text-left">
+                <Link href={`filter/group?group=language-original`}>
+                <button className="bg-[#FAFAFA] px-[70px] py-[10px] rounded-xl font-semibold text-[20px] text-[#05000E]">
+                  مشاهده
+                </button>
+                </Link>
+              </div>
+            </Flex>
+          </div>
+        </div>
+        <HorizontalBooks header="کتاب های ارزان" searchKey="economical" />
+        <div className="w-full">
+          <Flex flexDir="column" gap="10px">
+            <Heading fontFamily="Vazirmatn" fontWeight="medium" fontSize="24px">
+              دسته بندی های محبوب
+            </Heading>
+            <Flex gap="10px">
+              <Link href="/filter/category?category=عاشقانه" className="flex-grow w-[25%]">
+                <div className=" w-full h-[300px] relative rounded-2xl overflow-hidden">
+                  <img
+                    className="w-full h-full brightness-[0.3] absolute z-[-1]"
+                    src="https://daily.jstor.org/wp-content/uploads/2016/02/BookOfLove_1050x700.jpg"
+                  />
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    height="full"
+                  >
+                    <Heading
+                      color="white"
+                      fontFamily="Vazirmatn"
+                      fontWeight="semibold"
+                      fontSize="35px"
+                    >
+                      عاشقانه
+                    </Heading>
+                  </Flex>
+                </div>
+              </Link>
+              <Link href="/filter/category?category=هیجان انگیز" className="flex-grow w-[25%]">
+                <div className=" w-full h-[300px] relative rounded-2xl overflow-hidden">
+                  <img
+                    className="w-full h-full brightness-[0.3] absolute z-[-1]"
+                    src="https://images.squarespace-cdn.com/content/v1/60b789fe5c8bd718ae98ea7f/535e4914-8ebc-4bbd-9a00-1d781ded0de6/AdobeStock_191493381.jpeg?format=1500w"
+                  />
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    height="full"
+                  >
+                    <Heading
+                      color="white"
+                      fontFamily="Vazirmatn"
+                      fontWeight="semibold"
+                      fontSize="35px"
+                    >
+                      هیجان انگیز
+                    </Heading>
+                  </Flex>
+                </div>
+              </Link>
+              <Link href="/filter/category?category=طنز" className="flex-grow w-[25%]">
+                <div className=" w-full h-[300px] relative rounded-2xl overflow-hidden">
+                  <img
+                    className="w-full h-full brightness-[0.3] absolute z-[-1]"
+                    src="https://s26162.pcdn.co/wp-content/uploads/sites/2/2018/10/hauntedbookstorefeature.jpg"
+                  />
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    height="full"
+                  >
+                    <Heading
+                      color="white"
+                      fontFamily="Vazirmatn"
+                      fontWeight="semibold"
+                      fontSize="35px"
+                    >
+                      طنز
+                    </Heading>
+                  </Flex>
+                </div>
+              </Link>
+            </Flex>
+          </Flex>
+        </div>
+      </Flex>
+    </div>
+  );
+}
+
+export default HomePage;

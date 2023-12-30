@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Image,
@@ -10,11 +9,13 @@ import {
   Stack,
   Divider,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 function SuggestedBookItem(props) {
   return (
     <Card w="300px" h="502px" paddingX="30px" paddingTop="20px" >
       <CardBody p="0">
+        <Link href={`/books/${props.id}`}>
         <Image
           src={props.bookcoverimage}
           alt="Green double couch with wooden legs"
@@ -23,6 +24,8 @@ function SuggestedBookItem(props) {
           h="317px"
           p="0"
         />
+        </Link>
+        
         <Stack mt="6" spacing="3">
           <Heading size="md">{props.bookname}</Heading>
           <Text>{props.authorname}</Text>

@@ -12,8 +12,8 @@ function AuthorBooksList(props) {
       <Flex flexDir="column" width="100%" rowGap="20px">
         {slicedBooks.map((book) => (
           <AuthorBookItem
-            id={book.bookid}
-            key={book.bookid}
+            id={book.id}
+            key={book.id}
             bookname={book.bookname}
             authorname={book.authorname}
             price={book.price}

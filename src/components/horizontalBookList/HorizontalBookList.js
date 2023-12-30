@@ -1,16 +1,17 @@
 import { Flex, Center, Spinner } from "@chakra-ui/react";
 import React from "react";
-import SuggestedBookItem from "./SuggestedBookItem";
-import useGetCategoryBooks from "@/react-query/hooks/useGetCategoryBooks";
+import HorizontalBookItem from "./HorizontalBookItem";
+import useGetBookGroups from "@/react-query/hooks/useGetBookGroups";
 
-function SuggestedBooksList(props) {
-  const { data, isSuccess } = useGetCategoryBooks(props.category);
-  if (isSuccess) {
-    const slicedBooks = data.data.slice(0, 2);
+
+function HorizontalBookList(props) {
+  const { data, isSuccess } =useGetBookGroups(props.searchKey);
+  if (isSuccess&&data.data) {
+    const slicedBooks = data.data.slice(0, 4);
     return (
       <Flex width="100%" columnGap="20px" justifyContent="center">
         {slicedBooks.map((book) => (
-          <SuggestedBookItem
+          <HorizontalBookItem
             id={book.id}
             key={book.id}
             bookname={book.bookname}
@@ -38,4 +39,4 @@ function SuggestedBooksList(props) {
   }
 }
 
-export default SuggestedBooksList;
+export default HorizontalBookList;

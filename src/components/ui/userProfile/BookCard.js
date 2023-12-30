@@ -43,9 +43,9 @@ function BookCard(props) {
               </Heading>
               <HStack alignItems="center">
                 <span className="text-[#000015] text-[24px]">
-                  {props.price}
+                {props.price===0?"رایگان":props.price}
                 </span>
-                <span className="text-[#C8C8C8] text-[12px]">تومان</span>
+                <span className="text-[#C8C8C8] text-[12px]">{props.data.price===0?"":"تومان"}</span>
               </HStack>
               <Stack rowGap="20px" flexGrow="1">
                 <span className="text-[16px] font-medium text-[#000015]">

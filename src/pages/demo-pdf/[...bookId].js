@@ -1,2 +1,2 @@
-import PDFViewer from "@/components/PDFViewer";
+import PDFViewer from "@/components/bookDetails/PDFViewer"
 export default PDFViewer

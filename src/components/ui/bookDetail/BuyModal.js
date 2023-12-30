@@ -76,7 +76,7 @@ function BuyModal(props) {
           </HStack>
           <HStack justify="space-between">
            <Text>قیمت</Text>
-           <Text>{props.price} تومان</Text>
+           <Text>{props.price===0?"رایگان":props.price} {props.price===0?"":"تومان"}</Text>
           </HStack>
           <HStack justify="space-between" borderBottomWidth={1} pb={2}>
            <Text>درصد تخفیف</Text>

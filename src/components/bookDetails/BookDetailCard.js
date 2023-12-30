@@ -11,7 +11,7 @@ function BookDetailCard(props) {
   const token=Cookies.get("token")
 
   return (
-    <CustomCardContainer minH="315px" pt="30px" pr="20px" pl="20px">
+    <CustomCardContainer minH="315px" pt="30px" pr="20px" pl="20px" pb="30px">
       <Flex>
         <div className="w-[250px] h-[339px] absolute top-[-12px] rounded-xl overflow-hidden shadow-[2px_3px_14px_0px_#00000038]">
           <Image
@@ -21,7 +21,7 @@ function BookDetailCard(props) {
             src={props.data.bookcoverimage}
           />
         </div>
-        <Flex width="100%" marginRight="280px">
+        <Flex width="100%" height="100%" marginRight="280px">
           <Stack spacing="3" rowGap="18px" flexGrow="1">
             <Heading
               fontFamily="Vazirmatn"
