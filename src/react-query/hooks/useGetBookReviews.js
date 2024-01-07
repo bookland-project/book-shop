@@ -3,7 +3,6 @@ import axios from "axios";
 import useShowToast from "@/components/ui/useShowToast";
 
 const useGetBookReviews = (bookId) => {
-  console.log("review")
   const showToast = useShowToast();
   return useQuery({
     queryKey: ["book-review"],

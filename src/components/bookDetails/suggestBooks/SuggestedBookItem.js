@@ -13,7 +13,7 @@ import Link from "next/link";
 
 function SuggestedBookItem(props) {
   return (
-    <Card w="300px" h="502px" paddingX="30px" paddingTop="20px" >
+    <Card w="300px" paddingX="30px" paddingTop="20px" >
       <CardBody p="0">
         <Link href={`/books/${props.id}`}>
         <Image

@@ -9,7 +9,6 @@ import useGetBookInformation from "@/react-query/hooks/useGetBookInformation";
 import { useParams } from "next/navigation";
 import AuthorBooks from "./authorBooks";
 import CustomCardContainer from "../ui/bookDetail/CustomCardContainer";
-import HorizontalBooks from "../horizontalBookList/HorizontalBooks";
 import SuggestBooks from "./suggestBooks";
 
 
