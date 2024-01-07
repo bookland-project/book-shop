@@ -13,8 +13,8 @@ import Link from "next/link";
 
 function HorizontalBookItem(props) {
   return (
-    <Card w="250px" paddingX="30px" paddingTop="20px">
-      <CardBody p="0">
+    <Card w="230px" paddingX="30px" paddingTop="20px">
+      <CardBody p="0" display="flex" flexDir="column">
         <Link href={`/books/${props.id}`}>
           <Image
             src={props.bookcoverimage}
@@ -25,8 +25,8 @@ function HorizontalBookItem(props) {
             p="0"
           />
         </Link>
-        <Stack mt="6" spacing="3">
-          <Heading size="sm">{props.bookname}</Heading>
+        <Stack mt="6" spacing="3" flexGrow="1">
+          <Heading size="sm" flexGrow="1">{props.bookname}</Heading>
           <Text>{props.authorname}</Text>
         </Stack>
       </CardBody>
