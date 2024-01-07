@@ -5,7 +5,8 @@ import { useState } from "react";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/toolbar/lib/styles/index.css";
 
-const PDFViewer = () => {
+
+const PDFViewer = (props) => {
   const [toolbarPluginInstance] = useState(toolbarPlugin());
   const { Toolbar } = toolbarPluginInstance;
 
@@ -17,6 +18,8 @@ const PDFViewer = () => {
     Print:()=><></>,
     PrintMenuItem:()=><></>,
     DownloadMenuItem: () => <></>,
+    SwitchTheme: () => <></>,
+    SwitchThemeMenuItem:()=><></>,
   });
 
   return (
@@ -57,7 +60,7 @@ const PDFViewer = () => {
       >
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
           <Viewer
-            fileUrl="http://localhost:8080/books/demo-1.pdf"
+            fileUrl={props.url}
             // theme="dark"
             plugins={[toolbarPluginInstance]}
             theme={{
