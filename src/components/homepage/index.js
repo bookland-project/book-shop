@@ -1,5 +1,5 @@
 import React from "react";
-import HorizontalBooks from "../horizontalBookList/HorizontalBooks";
+import HorizontalBooks from "./horizontalBookList/HorizontalBooks";
 import { Flex, Heading } from "@chakra-ui/react";
 import Link from "next/link";
 import BestSelling from "./BestSelling";
