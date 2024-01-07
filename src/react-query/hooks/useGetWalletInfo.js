@@ -18,15 +18,16 @@ const useGetWalletInfo = () => {
 				})
 				.then((res) => res.data)
 				.catch((err) => {
-					// showToast(err.response.data.result.error_message);
-					// if (
-					// 	err.response.status === 401 ||
-					// 	err.response.status === 403
-					// ) {
-					// 	// token ? Cookies.remove("token") : "";
-					// 	// push("/login");
-					// }
+					showToast(err.response.data.result.error_message);
+					if (
+						err.response.status === 401 ||
+						err.response.status === 403
+					) {
+						token ? Cookies.remove("token") : "";
+						push("/login");
+					}
 				}),
+		enabled:token?true:false
 	});
 };
 

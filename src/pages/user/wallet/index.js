@@ -24,7 +24,6 @@ const coinStyle = {
 };
 
 const Wallet = () => {
-	console.log("reload")
 	const {
 		data,
 		isLoading: walletInfoIsLoading,
@@ -38,7 +37,6 @@ const Wallet = () => {
 	const router = useRouter();
 	const pageName = router.pathname;
 	const token = Cookies.get("token");
-	console.log(router.query.Status)
 
 	useEffect(() => {
 		if (router.query.Status && router.query.Status === "OK") {
@@ -58,35 +56,6 @@ const Wallet = () => {
 		}
 	},[router ,showToast ,token]);
 
-	const currentAmount = ""; // this will be change. it is for test only
-
-	// const handleInputChange = (event) => {
-	// 	const persianValue = event.target.value.replace(/[0-9]/g, (match) => {
-	// 		const persianDigits = [
-	// 			"۰",
-	// 			"۱",
-	// 			"۲",
-	// 			"۳",
-	// 			"۴",
-	// 			"۵",
-	// 			"۶",
-	// 			"۷",
-	// 			"۸",
-	// 			"۹",
-	// 		];
-	// 		return persianDigits[+match];
-	// 	});
-
-	// 	setInputValue(event.target.value);
-	// };
-
-	//   const handleKeyPress = (event) => {
-	//     const isValidInput = /^[0-9]*$/.test(event.key);
-
-	//     if (!isValidInput) {
-	//       event.preventDefault();
-	//     }
-	//   };
 
 	const submitHandler = (e) => {
 		e.preventDefault();

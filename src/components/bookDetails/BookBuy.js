@@ -11,7 +11,6 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import useShowToast from "../ui/useShowToast";
-import { useDisclosure } from "@chakra-ui/react";
 import useIsBookBought from "@/react-query/hooks/useIsBookBought";
 import BuyModal from "../ui/bookDetail/BuyModal";
 import Cookies from "js-cookie";
@@ -24,7 +23,6 @@ function BookBuy(props) {
   const [isCopied, setCopied] = useState(false);
   const offCode = "welcome";
   const showToast = useShowToast();
-  const { onOpen } = useDisclosure();
   if (!token) {
     return (
       <CustomCardContainer
