@@ -6,7 +6,7 @@ import useShowToast from "@/components/ui/useShowToast";
 const useGetBookInformation = (params) => {
   const showToast = useShowToast();
   return useQuery({
-    queryKey: ["book"],
+    queryKey: ["book",params.bookId],
     queryFn: () =>
       axios
         .get(`http://Localhost:8000/api/books/${params.bookId}`)
