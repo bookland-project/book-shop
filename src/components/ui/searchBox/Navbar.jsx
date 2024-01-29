@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SearchBox from "@/components/ui/searchBox/SearchBox";
-import { Flex } from "@chakra-ui/react";
+import { Flex} from "@chakra-ui/react";
 import Link from "next/link";
 import Cookies from "js-cookie";
-import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    Button
-  } from '@chakra-ui/react'
-  import { ChevronDownIcon,HamburgerIcon } from "@chakra-ui/icons";
+import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
+import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 function Navbar() {
-  const token = Cookies.get("token");
+  const [tokenState, setTokenState] = useState();
+  useEffect(() => {
+    const token = Cookies.get("token");
+    setTokenState(token);
+  });
+  function exitHandler(){
+    Cookies.remove("token")
+    setTokenState()
+  }
+
   const categoryList = [
     "کمک درسی ",
     "داستانی",
@@ -29,10 +32,10 @@ function Navbar() {
     "فلسفه",
     " علمی-تخیلی",
     "تاریخ",
-    "خودیاری"
+    "خودیاری",
   ];
   return (
-    <nav className=" w-full bg-white sticky top-0 z-[999999] shadow-lg">
+    <nav className=" w-full bg-white sticky top-0 z-[80]  shadow-lg">
       <div className="w-[80%] pt-[20px] h-full mx-auto flex flex-col gap-[10px]">
         <Flex justifyContent="space-between" gap="35px" alignItems="center">
           <Link href="/">
@@ -128,7 +131,7 @@ function Navbar() {
           <SearchBox />
           <div className="h-full">
             <Link
-              href={`${token ? "user/userProfile" : "/login"}`}
+              href={`${tokenState ? "/user/userProfile" : "/login"}`}
               className="border-[0.5px] border-[#C8C8C8] flex p-[5px] rounded-[10px] gap-[2px] items-center h-[44px]"
             >
               <div>
@@ -145,26 +148,60 @@ function Navbar() {
                   />
                 </svg>
               </div>
-              <div>
-                {" "}
-                <span className="text-[#515457] text-[13px] font-normal">
-                  {token ? "پروفایل من" : "ورود/ثبت نام"}
-                </span>
+              <div className="text-[#515457] text-[13px] font-normal">
+                {tokenState ? "پروفایل من" : "ورود/ثبت نام"}
               </div>
             </Link>
           </div>
+          {tokenState&&<button onClick={()=>exitHandler()}  className="text-[#515457] text-[13px] font-normal border-[0.5px] border-[#C8C8C8] px-[15px] rounded-[10px]  items-center h-[44px]">خروج</button>}
         </Flex>
         <ul className="flex items-center">
-          <Menu >
-          {({ isOpen }) => (
-            <>
-            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} leftIcon={<HamburgerIcon marginLeft="10px" />} paddingY="15px" paddingLeft="25px" fontSize="18px" fontFamily="Vazirmatn" fontWeight="normal" bg="inherit" _hover={{ backgroundColor: `${isOpen?"":"inherit"}`}} _active={{ backgroundColor: '#e6e7fa'}}>
-              دسته بندی ها
-            </MenuButton>
-            <MenuList marginTop="0px" borderRadius="0" outline="none" border="none" maxH="580px" width="300px">
-                {categoryList.map(category=><MenuItem _hover={{ backgroundColor: '#f2f3ff'}} key={Math.random}><Link className="w-full" href={category!=="زبان خارجی"?`/filter/category?category=${category}`:`filter/group?group=language-original`}>{category}</Link></MenuItem>)}
-            </MenuList>
-            </>)}
+          <Menu>
+            {({ isOpen }) => (
+              <>
+                <MenuButton
+                  as={Button}
+                  rightIcon={<ChevronDownIcon />}
+                  leftIcon={<HamburgerIcon marginLeft="10px" />}
+                  paddingY="15px"
+                  paddingLeft="25px"
+                  fontSize="18px"
+                  fontFamily="Vazirmatn"
+                  fontWeight="normal"
+                  bg="inherit"
+                  _hover={{ backgroundColor: `${isOpen ? "" : "inherit"}` }}
+                  _active={{ backgroundColor: "#e6e7fa" }}
+                >
+                  دسته بندی ها
+                </MenuButton>
+                <MenuList
+                  marginTop="0px"
+                  borderRadius="0"
+                  outline="none"
+                  border="none"
+                  maxH="580px"
+                  width="300px"
+                >
+                  {categoryList.map((category) => (
+                    <MenuItem
+                      _hover={{ backgroundColor: "#f2f3ff" }}
+                      key={categoryList.indexOf(category)}
+                    >
+                      <Link
+                        className="w-full"
+                        href={
+                          category !== "زبان خارجی"
+                            ? `/filter/category?category=${category}`
+                            : `filter/group?group=language-original`
+                        }
+                      >
+                        {category}
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </>
+            )}
           </Menu>
           <li className="py-[15px] px-[25px] text-[18px]">
             <Link href="/call-us">ارتباط با ما</Link>

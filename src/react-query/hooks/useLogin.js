@@ -14,15 +14,15 @@ const useLogin = () => {
 	return useMutation({
 		mutationFn: apiClient.post,
 		onSuccess: (data) => {
-			console.log(data.data);
 			const token = data.data;
 			Cookies.set("token", token, { expires: inhalfHours });
 			const decoded = jwtDecode(token);
+			console.log(decoded)
       		if(decoded.role_id===2){
 				router.push("/");
 			};
 			if(decoded.role_id===1){
-				router.push("/Publisher");
+				router.push("/books/4");
 			};
 		},
 	});

@@ -11,7 +11,7 @@ function HomePage() {
     <div className="w-full pb-[60px]">
       <div>
         <div className="w-[80%] mx-auto ">
-          <Flex paddingY="60px" justifyContent="space-between">
+          <Flex paddingY="60px" justifyContent="space-between" alignItems="center">
             <Flex flexDir="column" gap="20px">
               <div>
               <p className="text-[40px] font-extrabold text-[#05000E]">

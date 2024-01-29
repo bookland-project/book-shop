@@ -22,6 +22,7 @@ import useBuyBook from '@/react-query/hooks/useBuyBook';
 import useShowToast from '../useShowToast';
 import Cookies from 'js-cookie';
 
+
 function BuyModal(props) {
   const token = Cookies.get("token");
   const discountRef=useRef()
@@ -41,6 +42,7 @@ function BuyModal(props) {
   }
   const buyHandler=()=>{
     mutate({book_Id:props.bookId,discount_Id:discountId})
+    router.reload()
   }
   return (
     <>

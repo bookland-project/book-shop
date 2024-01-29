@@ -86,7 +86,7 @@ function BookDetail(props) {
           </HStack>
           <BuyModal price={props.data.price} bookId={props.data.book_id} />
           <Link
-            href="/demo-pdf/https://cdn.filestackcontent.com/wcrjf9qPTCKXV3hMXDwK"
+            href={`/demo-pdf/${props.data.book_id}`}
             className="w-full h-[49px] rounded-xl px-[44px] py-[10px] bg-white border-[1px] border-[#C8C8C8] text-[16px] font-medium text-[#000015] text-center"
           >
             مشاهده نمونه
