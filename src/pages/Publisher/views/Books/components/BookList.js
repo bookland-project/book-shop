@@ -15,12 +15,19 @@ import {
 import Card from "../../../components/Card/Card.js";
 import CardBody from "../../../components/Card/CardBody.js";
 import CardHeader from "../../../components/Card/CardHeader.js";
-import TablesTableRow from "../../../components/Tables/TablesTableRow";
+import TablesTableRow from "./TablesTableRow.js";
 import { FaPlus } from "react-icons/fa";
 import { Seperator } from "@/pages/Publisher/components/Seperator/Seperator.js";
+import { useRouter } from "next/router.js";
 
 const BookList = ({ title, captions, data, issuccess }) => {
 	const textColor = useColorModeValue("gray.700", "white");
+
+	const router = useRouter();
+
+	const AddBook = () => {
+		router.push("./Books/AddBook");
+	};
 
 	return (
 		<Card overflowX="auto">
@@ -40,6 +47,7 @@ const BookList = ({ title, captions, data, issuccess }) => {
 							borderRadius="15px"
 							height="80px"
 							width="240px"
+							onClick={AddBook}
 						>
 							<Flex
 								direction="row"
@@ -79,6 +87,8 @@ const BookList = ({ title, captions, data, issuccess }) => {
 						{data.map((row) => (
 							<TablesTableRow
 								key={`${row.author}-${row.bookname}`}
+								id={row.id}
+								logo={row.bookcoverimage}
 								bookname={row.bookname}
 								author={row.authorname}
 								translatorname={row.translatorname}

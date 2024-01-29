@@ -37,7 +37,7 @@ const Wallet = ({ mright, data, walletInfoIsLoading, isSuccess, refetch }) => {
 			showToast("شارژ کیف پول شما با موفقیت انجام شد", "success");
 			axios
 				.put(
-					`http://Localhost:5000/api/publisher/wallet/UpdatePublisherWallet${localStorage.getItem(
+					`https://Localhost:5000/api/publisher/wallet/UpdatePublisherWallet${localStorage.getItem(
 						"id"
 					)}`,
 					{},
@@ -53,19 +53,17 @@ const Wallet = ({ mright, data, walletInfoIsLoading, isSuccess, refetch }) => {
 					}
 				})
 				.catch((err) => console.log(err));
-			router.replace("Publisher/views/ChargeWallet");
+			router.replace("/Publisher/views/ChargeWallet");
 		}
 		if (router.query.Status && router.query.Status === "NOK") {
 			showToast("مشکلی در شارژ کیف پول بوجود آمده،لطفا دوباره تلاش کنید");
-			router.replace("Publisher/views/ChargeWallet");
+			router.replace("/Publisher/views/ChargeWallet");
 		}
 	}, [router, showToast, token]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		mutate();
-		console.log("button clicked");
-		console.log("token is ", token);
 	};
 
 	return (

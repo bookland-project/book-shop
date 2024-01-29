@@ -12,11 +12,9 @@ const useChangePublisherProfile = () => {
 	const token = Cookies.get("token");
 	const { push } = useRouter();
 	return useMutation({
-		mutationFn: apiClient.post,
+		mutationFn: apiClient.put,
 		onSuccess: (data) => {
-			token ? Cookies.remove("token") : "";
-			push("/login");
-			showToast("کاربر عزیز لطفا دوباره وارد شوید.");
+			window.location.reload();
 		},
 	});
 };

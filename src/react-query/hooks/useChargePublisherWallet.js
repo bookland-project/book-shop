@@ -28,6 +28,10 @@ const useChargePublisherWallet = (data) => {
 			localStorage.setItem("id", id);
 			router.push(paymentUrl);
 		},
+		onError: (error) => {
+			console.error("Error charging publisher's wallet:", error);
+			// You can add additional error handling logic or notifications here
+		},
 	});
 };
 

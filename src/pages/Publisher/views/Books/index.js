@@ -2,8 +2,6 @@ import { useRouter } from "next/router";
 import Sidebar from "../../components/Sidebar";
 import { Flex, Grid } from "@chakra-ui/react";
 import BookList from "./components/BookList";
-import Conversations from "./components/Conversations";
-import { tablesTableData } from "../../variables/general";
 import useGetPublisherBook from "@/react-query/hooks/useGetPublisherBooks";
 
 const Books = () => {
@@ -28,6 +26,7 @@ const Books = () => {
 						<BookList
 							title={"لیست کتاب ها"}
 							captions={[
+								"",
 								"کتاب",
 								"نویسنده/مترجم",
 
@@ -42,10 +41,6 @@ const Books = () => {
 							issuccess={!isError}
 						/>
 					</Grid>
-					{/* 
-					<Grid templateColumns="repeat(1, 1fr)" gap="22px">
-						<Conversations title={"کامنت ها"} />
-					</Grid> */}
 				</Flex>
 			</div>
 		</Sidebar>

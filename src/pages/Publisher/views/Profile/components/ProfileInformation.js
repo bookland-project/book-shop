@@ -7,6 +7,7 @@ import CardHeader from "../../../components/Card/CardHeader";
 import React, { useState } from "react";
 import { EditIcon } from "@/pages/Publisher/components/Icons/Icons";
 import EditModal from "./EditModal";
+import Image from "next/image";
 
 const ProfileInformation = ({
 	title,
@@ -151,7 +152,7 @@ const ProfileInformation = ({
 						onClose={() => setOpenPhoneNo2(false)}
 						edit={"PhoneNo2"}
 					/>
-					<Flex mb="18px">
+					<Flex mb="18px" alignItems="center">
 						<Text
 							fontSize="md"
 							color={textColor}
@@ -174,11 +175,18 @@ const ProfileInformation = ({
 						<Text
 							fontSize="md"
 							color="gray.500"
-							width="256px"
-							height="256px"
+							// width="256px"
+							// height="256px"
 							fontWeight="400"
 						>
-							{logo}
+							{logo && (
+								<Image
+									objectFit="fill"
+									width="250"
+									height="250"
+									src={logo}
+								/>
+							)}
 						</Text>
 					</Flex>
 					<EditModal

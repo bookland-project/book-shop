@@ -19,7 +19,7 @@ export const API_ENDPOINTS = {
 	//PUBLISHER
 	CHANGE_PUBLISHER_PASS: "/api/publisher/change-password ",
 	PUBLISHER_PROFILE: "/api/publisher/profile ",
-	GET_PUBLISHER_BOOKS: "/api/publisher/books ",
+	PUBLISHER_BOOKS: "/api/publisher/books ",
 	PUBLISHER_BALANCE: "/api/publisher/wallet-balance",
 	PUBLISHER_WALLET_HISTORY: "/api/publisher/wallet-history",
 	PUBLISHER_WALLET: "api/publisher/wallet/ChargePublisherWallet",

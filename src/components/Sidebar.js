@@ -11,6 +11,7 @@ import {
 	Icon,
 	Input,
 	Text,
+	useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -186,7 +187,26 @@ const Sidebar = (props) => {
 						>
 							<Icon></Icon> &nbsp; تاریخچه تراکنش‌ها
 						</Link>
-						<Link href="/Publisher/views/Books">Publisher</Link>
+						<Link
+							href="/login/"
+							style={{
+								textDecoration: "none",
+								marginBottom: "20px",
+							}}
+						>
+							<Text
+								color={useColorModeValue(
+									"gray.400",
+									"gray.400"
+								)}
+								my="auto"
+								fontSize="md"
+								fontWeight="500"
+								_hover={{ color: "blue.500" }}
+							>
+								خروج از حساب کاربری
+							</Text>
+						</Link>
 					</CardFooter>
 				</Card>
 			</Box>

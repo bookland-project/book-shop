@@ -13,12 +13,9 @@ const useGetPublisherBook = () => {
 		queryKey: ["publisherbooks"],
 		queryFn: () =>
 			axios
-				.get(
-					"http://Localhost:8000" + API_ENDPOINTS.GET_PUBLISHER_BOOKS,
-					{
-						headers: { Authorization: "Bearer " + token },
-					}
-				)
+				.get("http://Localhost:8000" + API_ENDPOINTS.PUBLISHER_BOOKS, {
+					headers: { Authorization: "Bearer " + token },
+				})
 				.then((res) => res.data)
 				.catch((err) => {
 					showToast(err.response.data.result.error_message);

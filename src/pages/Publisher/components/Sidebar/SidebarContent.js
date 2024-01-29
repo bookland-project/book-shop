@@ -170,7 +170,10 @@ const SidebarContent = ({ pageName }) => {
 	};
 
 	const links = <>{createLink(routes)}</>;
-	const name = "sana";
+	const activeBg = useColorModeValue("white", "gray.700");
+	const inactiveBg = useColorModeValue("white", "gray.700");
+	const activeColor = useColorModeValue("gray.700", "white");
+	const inactiveColor = useColorModeValue("gray.400", "gray.400");
 
 	return (
 		<>
@@ -209,7 +212,23 @@ const SidebarContent = ({ pageName }) => {
 			</Box>
 			<Flex direction="column" mb="40px">
 				{links}
-				<Link href="/user/wallet">User</Link>
+				<Link
+					href="/login/"
+					style={{
+						textDecoration: "none",
+					}}
+					mt="30px"
+				>
+					<Text
+						color={inactiveColor}
+						my="auto"
+						fontSize="md"
+						fontWeight="500"
+						_hover={{ color: "blue.500" }}
+					>
+						خروج از حساب کاربری
+					</Text>
+				</Link>
 			</Flex>
 		</>
 	);
