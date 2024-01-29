@@ -16,9 +16,13 @@ import useShowToast from "@/components/ui/useShowToast";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Navbar from "@/components/ui/searchBox/Navbar";
+import Image from "next/image";
+import image1 from '/public/assets/images/Artboard 26.png'
+import image2 from '/public/assets/images/Artboard 26 copy.png'
+import image3 from '/public/assets/images/Artboard 26 copy 2.png'
 const coinStyle = {
 	height: "110px",
-	width: "165px",
+	width: "100%",
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center",
@@ -72,9 +76,9 @@ const Wallet = () => {
 						<span style={{ fontSize: "24px" }}>
 							دارایی حساب شما:
 						</span>
-						{walletInfoIsLoading && (
+						{/* {walletInfoIsLoading && (
 							<span> درحال بارگیری اطلاعات...</span>
-						)}
+						)} */}
 						{isSuccess && (
 							<>
 								<span style={{ fontSize: "32px" }}>
@@ -115,7 +119,7 @@ const Wallet = () => {
 						onClick={() => setInputValue(200000)}
 						style={{ cursor: "pointer" }}
 					>
-						<div style={coinStyle}></div>
+						<div style={coinStyle}><Image src={image1}/></div>
 						<Text
 							display="flex"
 							justifyContent="center"
@@ -136,7 +140,7 @@ const Wallet = () => {
 						onClick={() => setInputValue(100000)}
 						style={{ cursor: "pointer" }}
 					>
-						<div style={coinStyle}></div>
+						<div style={coinStyle}><Image src={image2}/></div>
 						<Text
 							display="flex"
 							justifyContent="center"
@@ -157,7 +161,7 @@ const Wallet = () => {
 						onClick={() => setInputValue(50000)}
 						style={{ cursor: "pointer" }}
 					>
-						<div style={coinStyle}></div>
+						<div style={coinStyle}><Image src={image3}/></div>
 						<Text
 							display="flex"
 							justifyContent="center"

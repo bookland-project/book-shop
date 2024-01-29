@@ -2,10 +2,12 @@ import useShowToast from "@/components/ui/useShowToast";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 function useBuyBook(onClose) {
   const token = Cookies.get("token");
   const showToast = useShowToast();
+  const router=useRouter()
   return useMutation({
     mutationFn: (obj) => {
       console.log(obj);
@@ -24,6 +26,7 @@ function useBuyBook(onClose) {
           if (res.data.result.http_status_code === 200) {
             onClose()
             showToast("خرید شما با موفقیت انجام شد.", "success");
+            router.reload()
           }
           return res.data;
         });

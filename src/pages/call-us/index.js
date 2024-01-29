@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Flex } from "@chakra-ui/react";
 import image from "/public/assets/images/Objects.png";
-import Link from "next/link";
 import Navbar from "@/components/ui/searchBox/Navbar";
 
 function CallUs() {

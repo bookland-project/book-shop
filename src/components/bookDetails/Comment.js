@@ -56,6 +56,9 @@ function Comment(props) {
       }
       }
     }
+    else{
+      showToast("وارد شوید!","info")
+    }
     
   };
 
