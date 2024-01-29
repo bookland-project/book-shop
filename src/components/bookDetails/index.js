@@ -6,16 +6,16 @@ import Comment from "@/components/bookDetails/Comment";
 import BookBuy from "@/components/bookDetails/BookBuy";
 import BookDetail from "./BookDetail";
 import useGetBookInformation from "@/react-query/hooks/useGetBookInformation";
-import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
 import AuthorBooks from "./authorBooks";
 import CustomCardContainer from "../ui/bookDetail/CustomCardContainer";
 import SuggestBooks from "./suggestBooks";
+import Navbar from "../ui/searchBox/Navbar";
 
 
 function BookDetails() {
-  const params = useParams();
-  const { data, isLoading, isSuccess, isError } = useGetBookInformation(params
-  );
+  const router=useRouter();
+  const { data, isLoading, isSuccess, isError } = useGetBookInformation(router.query);
 
   if (isLoading || isError) {
     return (
@@ -43,6 +43,7 @@ function BookDetails() {
 
     return (
       <div className="w-full">
+        <Navbar/>
         <div className="mx-auto w-[90%] h-full py-[50px]">
           <Flex height="full" gap="20px">
             <Flex flexDir="column" width="65%" gap="46px">

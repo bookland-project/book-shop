@@ -3,14 +3,64 @@ import HorizontalBooks from "./horizontalBookList/HorizontalBooks";
 import { Flex, Heading } from "@chakra-ui/react";
 import Link from "next/link";
 import BestSelling from "./BestSelling";
+import image from "/public/assets/images/Group.png";
+import Image from "next/image";
 
 function HomePage() {
   return (
     <div className="w-full pb-[60px]">
-      <div className=" h-[300px]">
-        <div className="w-[80%] mx-auto"></div>
+      <div>
+        <div className="w-[80%] mx-auto ">
+          <Flex paddingY="60px" justifyContent="space-between">
+            <Flex flexDir="column" gap="20px">
+              <div>
+              <p className="text-[40px] font-extrabold text-[#05000E]">
+                لذت خوندن کتاب رو همه‌جا
+              </p>
+              <p className="text-[40px] font-extrabold text-[#05000E]">
+                {" "}
+                به خودت هدیه بده!
+              </p>
+              </div>
+              <p className="text-[18px] font-normal text-[#05000E]">
+                دانلود قانونی بیش از 5000 کتاب متنی با بوکلند
+              </p>
+            </Flex>
+            <Flex>
+              <div className="pt-[60px] w-[400px] h-[400px] mb-[50px]">
+                <Image src={image}  className="w-[400px] h-[400px]"></Image>
+              </div>
+              <Flex flexDir="column" gap="12px" mr="-70px">
+                <Flex flexDir="column" gap="8px">
+                  <span className="text-primary text-[32px] font-semibold">
+                    2780+
+                  </span>
+                  <span className="text-[#05000E] text-[18px] font-medium">
+                    کتاب با ژانر مختلف
+                  </span>
+                </Flex>
+                <Flex flexDir="column" gap="8px">
+                  <span className="text-primary text-[32px] font-semibold">
+                    2780+
+                  </span>
+                  <span className="text-[#05000E] text-[18px] font-medium">
+                    کاربر خوشحال
+                  </span>
+                </Flex>
+                <Flex flexDir="column" gap="8px">
+                  <span className="text-primary text-[32px] font-semibold">
+                    2780+
+                  </span>
+                  <span className="text-[#05000E] text-[18px] font-medium">
+                    نویسنده{" "}
+                  </span>
+                </Flex>
+              </Flex>
+            </Flex>
+          </Flex>
+        </div>
       </div>
-      <BestSelling/>
+      <BestSelling />
       <Flex
         flexDirection="column"
         gap="30px"
@@ -38,9 +88,9 @@ function HomePage() {
               </Heading>
               <div className="text-left">
                 <Link href={`filter/group?group=language-original`}>
-                <button className="bg-[#FAFAFA] px-[70px] py-[10px] rounded-xl font-semibold text-[20px] text-[#05000E]">
-                  مشاهده
-                </button>
+                  <button className="bg-[#FAFAFA] px-[70px] py-[10px] rounded-xl font-semibold text-[20px] text-[#05000E]">
+                    مشاهده
+                  </button>
                 </Link>
               </div>
             </Flex>
@@ -53,7 +103,10 @@ function HomePage() {
               دسته بندی های محبوب
             </Heading>
             <Flex gap="10px">
-              <Link href="/filter/category?category=عاشقانه" className="flex-grow w-[25%]">
+              <Link
+                href="/filter/category?category=عاشقانه"
+                className="flex-grow w-[25%]"
+              >
                 <div className=" w-full h-[300px] relative rounded-2xl overflow-hidden">
                   <img
                     className="w-full h-full brightness-[0.3] absolute z-[-1]"
@@ -75,7 +128,10 @@ function HomePage() {
                   </Flex>
                 </div>
               </Link>
-              <Link href="/filter/category?category=هیجان انگیز" className="flex-grow w-[25%]">
+              <Link
+                href="/filter/category?category=هیجان انگیز"
+                className="flex-grow w-[25%]"
+              >
                 <div className=" w-full h-[300px] relative rounded-2xl overflow-hidden">
                   <img
                     className="w-full h-full brightness-[0.3] absolute z-[-1]"
@@ -97,7 +153,10 @@ function HomePage() {
                   </Flex>
                 </div>
               </Link>
-              <Link href="/filter/category?category=طنز" className="flex-grow w-[25%]">
+              <Link
+                href="/filter/category?category=طنز"
+                className="flex-grow w-[25%]"
+              >
                 <div className=" w-full h-[300px] relative rounded-2xl overflow-hidden">
                   <img
                     className="w-full h-full brightness-[0.3] absolute z-[-1]"

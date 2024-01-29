@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import useTransaction from "@/react-query/hooks/useTransaction";
+import Navbar from "@/components/ui/searchBox/Navbar";
 
 const TransactionHistory = () => {
 	const router = useRouter();
@@ -72,6 +73,8 @@ const TransactionHistory = () => {
 
 	if (isSuccess) {
 		return (
+			<>
+			<Navbar/>
 			<Sidebar pageName={pageName}>
 				<div>
 					<Table>
@@ -175,6 +178,7 @@ const TransactionHistory = () => {
 							</Center>				
 				</div>
 			</Sidebar>
+			</>
 		);
 	}
 };
