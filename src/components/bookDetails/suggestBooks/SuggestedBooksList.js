@@ -11,8 +11,8 @@ function SuggestedBooksList(props) {
       <Flex width="100%" columnGap="20px" justifyContent="center">
         {slicedBooks.map((book) => (
           <SuggestedBookItem
-            id={book.bookid}
-            key={book.bookid}
+            id={book.id}
+            key={book.id}
             bookname={book.bookname}
             authorname={book.authorname}
             price={book.price}

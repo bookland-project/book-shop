@@ -2,6 +2,7 @@ import BooksList from "../BooksList";
 import useGetMyBooks from "@/react-query/hooks/useGetMyBooks";
 import Sidebar from "@/components/Sidebar.js";
 import { Spinner,Center } from "@chakra-ui/react";
+import Navbar from "@/components/ui/searchBox/Navbar";
 
 function MyBooks() {
 	const { data, isLoading, isError } = useGetMyBooks();
@@ -30,9 +31,12 @@ function MyBooks() {
 		);
 	}
 	return (
+		<>
+		<Navbar/>
 		<Sidebar pageName="books">
 			<BooksList type="mybooks" booksArray={data.data} />
 		</Sidebar>
+		</>
 	);
 }
 

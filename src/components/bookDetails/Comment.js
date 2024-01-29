@@ -24,13 +24,12 @@ function Comment(props) {
   const [review, setReview] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const { data, isSuccess,isError,isLoading } = useGetComments(props.bookId, currentPage);
-  const { mutate } = useSendComments(props.bookId, currentPage);
+  const { mutate:sendComment } = useSendComments(props.bookId, currentPage);
   const { mutate: sendReview } = useSendReview(props.bookId);
 
   let pageButtons;
   if (isSuccess) {
     const totalPages = data.data.count;
-
     pageButtons = Array.from(
       { length: Math.min(totalPages) },
       (_, index) => index + 1
@@ -39,25 +38,28 @@ function Comment(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (token) {
+      if (token) {
       if (textareaRef.current.value.trim().length === 0 && review === 0) {
         showToast("نظری برای ثبت وجود ندارد.")
       } else{
         if (textareaRef.current.value.trim().length === 0) {
         sendReview({ id: props.bookId, value: review });
-        
+        setReview(0)
       } else if (review === 0) {
-        mutate({ id: props.bookId, value: textareaRef.current.value });
+        sendComment({ id: props.bookId, value: textareaRef.current.value });
+        textareaRef.current.value=''
       } else {
         sendReview({ id: props.bookId, value: review });
-        mutate({ id: props.bookId, value: textareaRef.current.value });
+        sendComment({ id: props.bookId, value: textareaRef.current.value });
+        textareaRef.current.value=''
+        // setReview(0)
       }
-      showToast("نظر شما یا موفقیت ثبت شد.", "success")
-      } 
-      
-    } else {
-      showToast("وارد شوید.", "info");
+      }
     }
+    else{
+      showToast("وارد شوید!","info")
+    }
+    
   };
 
   return (
@@ -73,7 +75,7 @@ function Comment(props) {
                 بقیه رو از نظرت با خبر کن!
               </p>
             </VStack>
-            <Rating setReview={setReview} />
+            <Rating setReview={setReview} rate={review}/>
           </HStack>
           <form className="flex flex-col w-full gap-6" onSubmit={submitHandler}>
             <Textarea

@@ -42,202 +42,171 @@ const Sidebar = (props) => {
 	const adjustedPageName = pageName.substring(1);
 	const { data, isLoading, isSuccess } = useUserProfile();
 
-	return (
-		<div
-			style={{
-				fontFamily: "'Vazirmatn', sans-serif",
-				display: "flex",
-				flexDir: "row",
-				gap: "20px",
-				margin: "130px 20px 30px auto", // margin top is based on size of navigation bar size
-			}}
-		>
-			<Box>
-				<Card
-					fontFamily="'Vazirmatn', sans-serif"
-					width="284px"
-					padding="16px 16px 0px"
-					display="flex"
-					justifyContent="center"
-					alignItems="center"
-					gap="10px"
-					borderRadius="20px"
-					background="#FAFAFA"
-				>
-					<CardHeader
-						display="flex"
-						flexDir="column"
-						justifyContent="center"
-						alignItems="center"
-						padding="2px 0px 0px"
-					>
-						<Avatar
-							width="70px"
-							height="70px"
-							name={isSuccess && data.data.username}
-						/>
-						<Box
-							display="flex"
-							flexDir="column"
-							justifyContent="center"
-							alignItems="center"
-						>
-							<Heading style={headingStyle}>
-								{isLoading && ""}
-								{isSuccess && data.data.username}
-							</Heading>
-							<Text
-								fontSize="12px"
-								fontStyle="normal"
-								fontWeight="200"
-								marginBottom="3px"
-							>
-								{isLoading && ""}
-								{isSuccess && data.data.email}
-							</Text>
-						</Box>
-					</CardHeader>
-					<Divider style={dividerStyle} />
-					<CardBody
-						display="flex"
-						justifyContent="flex-start"
-						alignItems="flex-start"
-						flexDir="column"
-						width="100%"
-						textColor="primary"
-						fontSize="20px"
-						fontWeight="500"
-						paddingRight="20px"
-						paddingTop="16px"
-						paddingBottom="16px"
-					>
-						<Box>
-							<Link
-								style={{
-									color:
-										adjustedPageName === "user/wallet"
-											? "#575DFB"
-											: "black",
-								}}
-								className="font-SemiBold"
-								href="wallet"
-							>
-								<Icon></Icon> &nbsp; کیف پول من
-							</Link>
-						</Box>
-					</CardBody>
-					<Divider style={dividerStyle} />
-					<CardFooter
-						display="flex"
-						justifyContent="flex-start"
-						alignItems="flex-start"
-						flexDir="column"
-						width="100%"
-						paddingTop="20px"
-						paddingBottom="8px"
-						paddingRight="20px"
-					>
-						<Link
-							style={{
-								...listItemStyle,
-								color:
-									adjustedPageName === "user/userProfile"
-										? "#575DFB"
-										: "black",
-							}}
-							className="font-SemiBold"
-							href="userProfile"
-						>
-							<Icon></Icon> &nbsp; اطلاعات کاربری
-						</Link>
-						<Link
-							style={{
-								...listItemStyle,
-								color:
-									adjustedPageName === "ooks"
-										? "#575DFB"
-										: "black",
-							}}
-							href="books"
-						>
-							<Icon></Icon> &nbsp; کتابخانه من
-						</Link>
-						<Link
-							style={{
-								...listItemStyle,
-								color:
-									adjustedPageName === "ookmarks"
-										? "#575DFB"
-										: "black",
-							}}
-							href="bookmarks"
-						>
-							<Icon></Icon> &nbsp; فهرست علاقه‌مندی‌ها
-						</Link>
-						<Link
-							style={{
-								...listItemStyle,
-								color:
-									adjustedPageName ===
-									"user/transactionHistory"
-										? "#575DFB"
-										: "black",
-							}}
-							href="transactionHistory"
-						>
-							<Icon></Icon> &nbsp; تاریخچه تراکنش‌ها
-						</Link>
-						<Link
-							href="/login/"
-							style={{
-								textDecoration: "none",
-								marginBottom: "20px",
-							}}
-						>
-							<Text
-								color={useColorModeValue(
-									"gray.400",
-									"gray.400"
-								)}
-								my="auto"
-								fontSize="md"
-								fontWeight="500"
-								_hover={{ color: "blue.500" }}
-							>
-								خروج از حساب کاربری
-							</Text>
-						</Link>
-					</CardFooter>
-				</Card>
-			</Box>
-			<Box>
-				<Card
-					fontFamily="'Vazirmatn', sans-serif"
-					width="1100px"
-					padding="24px 60px"
-					display="flex"
-					justifyContent="space-between"
-					alignItems="flex-start"
-					flexDirection="row"
-					gap="16px"
-					borderRadius="20px"
-					background="#FAFAFA"
-					fontWeight="500"
-					lineHeight="normal"
-					fontSize="20px"
-				>
-					<Box>
-						<Icon></Icon> &nbsp;
-						{(() => {
-							switch (adjustedPageName) {
-								case "user/userProfile":
-									return "اطلاعات کاربری";
-								case "user/wallet":
-									return "کیف پول من";
-								case "user/transactionHistory":
-									return "تاریخچه تراکنش‌ها";
-								case "ooks":
-									return "کتابخانه من";
+  return (
+    <div
+      style={{
+        fontFamily: "'Vazirmatn', sans-serif",
+        display: "flex",
+        flexDir: "row",
+        gap: "20px",
+        margin: "70px 20px 30px auto", // margin top is based on size of navigation bar size
+      }}
+    >
+      <Box>
+        <Card
+          fontFamily="'Vazirmatn', sans-serif"
+          width="284px"
+          padding="16px 16px 0px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          gap="10px"
+          borderRadius="20px"
+          background="#FAFAFA"
+        >
+          <CardHeader
+            display="flex"
+            flexDir="column"
+            justifyContent="center"
+            alignItems="center"
+            padding="2px 0px 0px"
+          >
+            <Avatar
+              width="70px"
+              height="70px"
+              name={isSuccess && data.data.username}
+            />
+            <Box
+              display="flex"
+              flexDir="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Heading style={headingStyle}>
+                {isLoading && ""}
+                {isSuccess && data.data.username}
+              </Heading>
+              <Text
+                fontSize="12px"
+                fontStyle="normal"
+                fontWeight="200"
+                marginBottom="3px"
+              >
+                {isLoading && ""}
+                {isSuccess && data.data.email}
+              </Text>
+            </Box>
+          </CardHeader>
+          <Divider style={dividerStyle} />
+          <CardBody
+            display="flex"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+            flexDir="column"
+            width="100%"
+            textColor="primary"
+            fontSize="20px"
+            fontWeight="500"
+            paddingRight="20px"
+            paddingTop="16px"
+            paddingBottom="16px"
+          >
+            <Box>
+              <Link
+                style={{
+                  color:
+                    adjustedPageName === "user/wallet" ? "#575DFB" : "black",
+                }}
+                className="font-SemiBold"
+                href="wallet"
+              >
+                <Icon></Icon> &nbsp; کیف پول من
+              </Link>
+            </Box>
+          </CardBody>
+          <Divider style={dividerStyle} />
+          <CardFooter
+            display="flex"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+            flexDir="column"
+            width="100%"
+            paddingTop="20px"
+            paddingBottom="8px"
+            paddingRight="20px"
+          >
+            <Link
+              style={{
+                ...listItemStyle,
+                color:
+                  adjustedPageName === "user/userProfile" ? "#575DFB" : "black",
+              }}
+              className="font-SemiBold"
+              href="userProfile"
+            >
+              <Icon></Icon> &nbsp; اطلاعات کاربری
+            </Link>
+            <Link
+              style={{
+                ...listItemStyle,
+                color: adjustedPageName === "ooks" ? "#575DFB" : "black",
+              }}
+              href="books"
+            >
+              <Icon></Icon> &nbsp; کتابخانه من
+            </Link>
+            <Link
+              style={{
+                ...listItemStyle,
+                color: adjustedPageName === "ookmarks" ? "#575DFB" : "black",
+              }}
+              href="bookmarks"
+            >
+              <Icon></Icon> &nbsp; فهرست علاقه‌مندی‌ها
+            </Link>
+            <Link
+              style={{
+                ...listItemStyle,
+                color:
+                  adjustedPageName === "user/transactionHistory"
+                    ? "#575DFB"
+                    : "black",
+              }}
+              href="transactionHistory"
+            >
+              <Icon></Icon> &nbsp; تاریخچه تراکنش‌ها
+            </Link>
+          </CardFooter>
+        </Card>
+      </Box>
+      <Box>
+        <Card
+          fontFamily="'Vazirmatn', sans-serif"
+          width="1100px"
+          padding="24px 60px"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="flex-start"
+          flexDirection="row"
+          gap="16px"
+          borderRadius="20px"
+          background="#FAFAFA"
+          fontWeight="500"
+          lineHeight="normal"
+          fontSize="20px"
+        >
+          <Box>
+            <Icon></Icon> &nbsp;
+            {(() => {
+              switch (adjustedPageName) {
+                case "user/userProfile":
+                  return "اطلاعات کاربری";
+                case "user/wallet":
+                  return "کیف پول من";
+                case "user/transactionHistory":
+                  return "تاریخچه تراکنش‌ها";
+                case "ooks":
+                  return "کتابخانه من";
 
 								case "ookmarks":
 									return "فهرست علاقه‌مندی‌ها";

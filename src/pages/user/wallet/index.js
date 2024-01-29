@@ -15,16 +15,20 @@ import useGetWalletInfo from "@/react-query/hooks/useGetWalletInfo";
 import useShowToast from "@/components/ui/useShowToast";
 import axios from "axios";
 import Cookies from "js-cookie";
+import Navbar from "@/components/ui/searchBox/Navbar";
+import Image from "next/image";
+import image1 from '/public/assets/images/Artboard 26.png'
+import image2 from '/public/assets/images/Artboard 26 copy.png'
+import image3 from '/public/assets/images/Artboard 26 copy 2.png'
 const coinStyle = {
 	height: "110px",
-	width: "165px",
+	width: "100%",
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center",
 };
 
 const Wallet = () => {
-	console.log("reload");
 	const {
 		data,
 		isLoading: walletInfoIsLoading,
@@ -38,9 +42,6 @@ const Wallet = () => {
 	const router = useRouter();
 	const pageName = router.pathname;
 	const token = Cookies.get("token");
-	console.log(router.query.Status);
-
-	console.log("token is", token);
 
 	useEffect(() => {
 		if (router.query.Status && router.query.Status === "OK") {
@@ -71,35 +72,6 @@ const Wallet = () => {
 		}
 	}, [router, showToast, token]);
 
-	const currentAmount = ""; // this will be change. it is for test only
-
-	// const handleInputChange = (event) => {
-	// 	const persianValue = event.target.value.replace(/[0-9]/g, (match) => {
-	// 		const persianDigits = [
-	// 			"۰",
-	// 			"۱",
-	// 			"۲",
-	// 			"۳",
-	// 			"۴",
-	// 			"۵",
-	// 			"۶",
-	// 			"۷",
-	// 			"۸",
-	// 			"۹",
-	// 		];
-	// 		return persianDigits[+match];
-	// 	});
-
-	// 	setInputValue(event.target.value);
-	// };
-
-	//   const handleKeyPress = (event) => {
-	//     const isValidInput = /^[0-9]*$/.test(event.key);
-
-	//     if (!isValidInput) {
-	//       event.preventDefault();
-	//     }
-	//   };
 
 	const submitHandler = (e) => {
 		e.preventDefault();
@@ -108,15 +80,16 @@ const Wallet = () => {
 
 	return (
 		<div>
+			<Navbar/>
 			<Sidebar pageName={pageName}>
 				<Box display="flex" flexDir="row" marginBottom="32px">
 					<Text fontWeight="700">
 						<span style={{ fontSize: "24px" }}>
 							دارایی حساب شما:
 						</span>
-						{walletInfoIsLoading && (
+						{/* {walletInfoIsLoading && (
 							<span> درحال بارگیری اطلاعات...</span>
-						)}
+						)} */}
 						{isSuccess && (
 							<>
 								<span style={{ fontSize: "32px" }}>
@@ -157,7 +130,7 @@ const Wallet = () => {
 						onClick={() => setInputValue(200000)}
 						style={{ cursor: "pointer" }}
 					>
-						<div style={coinStyle}></div>
+						<div style={coinStyle}><Image src={image1}/></div>
 						<Text
 							display="flex"
 							justifyContent="center"
@@ -178,7 +151,7 @@ const Wallet = () => {
 						onClick={() => setInputValue(100000)}
 						style={{ cursor: "pointer" }}
 					>
-						<div style={coinStyle}></div>
+						<div style={coinStyle}><Image src={image2}/></div>
 						<Text
 							display="flex"
 							justifyContent="center"
@@ -199,7 +172,7 @@ const Wallet = () => {
 						onClick={() => setInputValue(50000)}
 						style={{ cursor: "pointer" }}
 					>
-						<div style={coinStyle}></div>
+						<div style={coinStyle}><Image src={image3}/></div>
 						<Text
 							display="flex"
 							justifyContent="center"

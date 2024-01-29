@@ -16,7 +16,7 @@ function SuggestBooks(props) {
           </Heading>
           <Flex>
             <Link
-              href=""
+              href={`/filter/category?category=${data.data[0]}`}
               className="font-normal text-[16px] leading-[25px] text-primary text-right "
             >
               مشاهده همه &#8598;
