@@ -22,7 +22,7 @@ const useLogin = () => {
 				router.push("/");
 			};
 			if(decoded.role_id===1){
-				router.push("/books/4");
+				router.push("/Publisher");
 			};
 		},
 	});
