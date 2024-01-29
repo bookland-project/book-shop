@@ -15,6 +15,7 @@ import useGetWalletInfo from "@/react-query/hooks/useGetWalletInfo";
 import useShowToast from "@/components/ui/useShowToast";
 import axios from "axios";
 import Cookies from "js-cookie";
+import Navbar from "@/components/ui/searchBox/Navbar";
 const coinStyle = {
 	height: "110px",
 	width: "165px",
@@ -64,6 +65,7 @@ const Wallet = () => {
 
 	return (
 		<div>
+			<Navbar/>
 			<Sidebar pageName={pageName}>
 				<Box display="flex" flexDir="row" marginBottom="32px">
 					<Text fontWeight="700">

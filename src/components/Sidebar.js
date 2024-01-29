@@ -48,7 +48,7 @@ const Sidebar = (props) => {
         display: "flex",
         flexDir: "row",
         gap: "20px",
-        margin: "130px 20px 30px auto", // margin top is based on size of navigation bar size
+        margin: "70px 20px 30px auto", // margin top is based on size of navigation bar size
       }}
     >
       <Box>

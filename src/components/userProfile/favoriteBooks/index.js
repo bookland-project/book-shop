@@ -3,6 +3,7 @@ import BooksList from "../BooksList";
 import useGetBookmarks from "@/react-query/hooks/useGetBookmarks";
 import Sidebar from "@/components/Sidebar.js";
 import { Spinner,Center } from "@chakra-ui/react";
+import Navbar from "@/components/ui/searchBox/Navbar";
 
 function MyBookmarks() {
 	const { data, isLoading, isError } = useGetBookmarks();
@@ -31,9 +32,12 @@ function MyBookmarks() {
 	}
 
 	return (
+		<>
+		<Navbar/>
 		<Sidebar pageName="bookmarks">
 			{!isLoading && <BooksList type="favbooks" booksArray={data?.data} />}
 		</Sidebar>
+		</>
 	);
 }
 

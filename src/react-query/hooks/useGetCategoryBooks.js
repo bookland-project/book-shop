@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useGetCategoryBooks = (category) => {
   return useQuery({
-    queryKey: ["category-books"],
+    queryKey: ["category-books",category],
     queryFn: () =>
       axios
         .get(`http://localhost:7000/api/search/books?category=${category}`)

@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import * as Yup from "yup";
 import validatePass from "@/helpers/validatePass";
 import useChangePass from "@/react-query/hooks/useChangePass";
+import Navbar from "@/components/ui/searchBox/Navbar";
 
 const headerStyle = {
   fontSize: "20px",
@@ -85,6 +86,7 @@ const UserProfile = () => {
 
   return (
     <div>
+      <Navbar/>
       <Sidebar pageName={pageName}>
         <CardBody>
           <Box display="flex" flexDir="row" justifyContent="space-between">

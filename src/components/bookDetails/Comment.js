@@ -26,7 +26,6 @@ function Comment(props) {
   const { data, isSuccess,isError,isLoading } = useGetComments(props.bookId, currentPage);
   const { mutate:sendComment } = useSendComments(props.bookId, currentPage);
   const { mutate: sendReview } = useSendReview(props.bookId);
-  console.log("comment")
 
   let pageButtons;
   if (isSuccess) {
