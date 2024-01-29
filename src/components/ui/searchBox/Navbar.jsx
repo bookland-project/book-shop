@@ -167,10 +167,10 @@ function Navbar() {
             </>)}
           </Menu>
           <li className="py-[15px] px-[25px] text-[18px]">
-            <Link href="/contact-us">ارتباط با ما</Link>
+            <Link href="/call-us">ارتباط با ما</Link>
           </li>
           <li className="py-[15px] px-[25px] text-[18px]">
-            <Link href="/call-us">همکاری با ما</Link>
+            <Link href="/contact-us">همکاری با ما</Link>
           </li>
         </ul>
       </div>
