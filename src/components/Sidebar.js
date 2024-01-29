@@ -1,45 +1,46 @@
 import useUserProfile from "@/react-query/hooks/useUserProfile";
 import {
-  Avatar,
-  Box,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-  Heading,
-  Icon,
-  Input,
-  Text,
+	Avatar,
+	Box,
+	Card,
+	CardBody,
+	CardFooter,
+	CardHeader,
+	Divider,
+	Heading,
+	Icon,
+	Input,
+	Text,
+	useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useState } from "react";
 
 const listItemStyle = {
-  fontSize: "16px",
-  height: "48px",
-  fontWeight: 500,
+	fontSize: "16px",
+	height: "48px",
+	fontWeight: 500,
 };
 const dividerStyle = {
-  color: "#C8C8C8",
-  width: "278px",
-  height: "0px",
-  stroke: "0.5px",
+	color: "#C8C8C8",
+	width: "278px",
+	height: "0px",
+	stroke: "0.5px",
 };
 const headingStyle = {
-  margin: "4px auto 5px",
-  fontSize: "20px",
-  fontStyle: "normal",
-  lineHeight: "normal",
-  fontFamily: "'Vazirmatn', sans-serif",
-  fontWeight: "semibold",
+	margin: "4px auto 5px",
+	fontSize: "20px",
+	fontStyle: "normal",
+	lineHeight: "normal",
+	fontFamily: "'Vazirmatn', sans-serif",
+	fontWeight: "semibold",
 };
 
 const Sidebar = (props) => {
-  const [input, setInput] = useState("");
-  const { pageName } = props;
-  const adjustedPageName = pageName.substring(1);
-  const { data, isLoading, isSuccess } = useUserProfile();
+	const [input, setInput] = useState("");
+	const { pageName } = props;
+	const adjustedPageName = pageName.substring(1);
+	const { data, isLoading, isSuccess } = useUserProfile();
 
   return (
     <div
@@ -207,54 +208,54 @@ const Sidebar = (props) => {
                 case "ooks":
                   return "کتابخانه من";
 
-                case "ookmarks":
-                  return "فهرست علاقه‌مندی‌ها";
+								case "ookmarks":
+									return "فهرست علاقه‌مندی‌ها";
 
-                default:
-                  return "";
-              }
-            })()}
-          </Box>
+								default:
+									return "";
+							}
+						})()}
+					</Box>
 
-          {!(adjustedPageName === "user/userProfile") &&
-            !(adjustedPageName === "user/transactionHistory") &&
-            !(adjustedPageName === "user/wallet") && (
-              <Input
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="جست‌و‌جو در خواسته‌ها..."
-                padding="8px 12px 8px 100px"
-                width="277px"
-                borderColor="#C8C8C8"
-                _placeholder={{
-                  color: "#C8C8C8",
-                  fontSize: "12px",
-                  fontWeight: "500",
-                }}
-                _focus={{
-                  borderColor: "#C8C8C8",
-                  boxShadow: "none",
-                }}
-              ></Input>
-            )}
-        </Card>
-        <Card
-          fontFamily="'Vazirmatn', sans-serif"
-          margin="20px auto auto auto"
-          width="1100px"
-          padding="40px 60px"
-          borderRadius="20px"
-          background="#FAFAFA"
-          style={props.style}
-        >
-          {React.Children.map(props.children, (child) => {
-            return React.cloneElement(child, {
-              searchValue: input,
-            });
-          })}
-        </Card>
-      </Box>
-    </div>
-  );
+					{!(adjustedPageName === "user/userProfile") &&
+						!(adjustedPageName === "user/transactionHistory") &&
+						!(adjustedPageName === "user/wallet") && (
+							<Input
+								onChange={(e) => setInput(e.target.value)}
+								placeholder="جست‌و‌جو در خواسته‌ها..."
+								padding="8px 12px 8px 100px"
+								width="277px"
+								borderColor="#C8C8C8"
+								_placeholder={{
+									color: "#C8C8C8",
+									fontSize: "12px",
+									fontWeight: "500",
+								}}
+								_focus={{
+									borderColor: "#C8C8C8",
+									boxShadow: "none",
+								}}
+							></Input>
+						)}
+				</Card>
+				<Card
+					fontFamily="'Vazirmatn', sans-serif"
+					margin="20px auto auto auto"
+					width="1100px"
+					padding="40px 60px"
+					borderRadius="20px"
+					background="#FAFAFA"
+					style={props.style}
+				>
+					{React.Children.map(props.children, (child) => {
+						return React.cloneElement(child, {
+							searchValue: input,
+						});
+					})}
+				</Card>
+			</Box>
+		</div>
+	);
 };
 
 export default Sidebar;
