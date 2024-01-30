@@ -63,7 +63,7 @@ function BuyModal(props) {
          <VStack align="stretch" gap={4}>
           <Heading fontSize="md">دارایی حساب شما :</Heading>
           <HStack justify="space-between">
-           <Text className={data && data.data===0?"#C8C8C8":"text-green-500"}>{data?data.data:0} تومان</Text>
+           <Text className={data && data.data===0?"#C8C8C8":"text-green-500"}>{data? new Intl.NumberFormat().format(data.data):0} تومان</Text>
            <Link href={"/user/wallet"} fontSize="xs" color="blue.500">
             شارژ حساب
            </Link>
@@ -80,7 +80,7 @@ function BuyModal(props) {
           </HStack>
           <HStack justify="space-between">
            <Text>قیمت</Text>
-           <Text>{props.price===0?"رایگان":props.price} {props.price===0?"":"تومان"}</Text>
+           <Text>{props.price===0?"رایگان": new Intl.NumberFormat().format(props.price)} {props.price===0?"":"تومان"}</Text>
           </HStack>
           <HStack justify="space-between" borderBottomWidth={1} pb={2}>
            <Text>درصد تخفیف</Text>
@@ -88,7 +88,7 @@ function BuyModal(props) {
           </HStack>
           <HStack justify="space-between">
            <Heading fontSize="md">جمع کل</Heading>
-           <Heading fontSize="md">{newPrice} تومان</Heading>
+           <Heading fontSize="md">{ new Intl.NumberFormat().format(newPrice)} تومان</Heading>
           </HStack>
           <button
             onClick={buyHandler}

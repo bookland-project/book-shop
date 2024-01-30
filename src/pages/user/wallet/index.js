@@ -93,7 +93,7 @@ const Wallet = () => {
 						{isSuccess && (
 							<>
 								<span style={{ fontSize: "32px" }}>
-									&nbsp;{data.data}
+									&nbsp;{ new Intl.NumberFormat().format(data.data)}
 								</span>
 								<span
 									style={{

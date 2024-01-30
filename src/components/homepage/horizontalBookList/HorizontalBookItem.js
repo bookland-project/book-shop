@@ -33,7 +33,7 @@ function HorizontalBookItem(props) {
       <Divider />
       <CardFooter justifyContent="flex-end" pl="0">
         <Text>
-          <span>{props.price === 0 ? "رایگان" : props.price}</span>
+          <span>{props.price === 0 ? "رایگان" :  new Intl.NumberFormat().format(props.price)}</span>
           <span className="text-[12px] text-[#C8C8C8] font-extrabold">
           {props.price===0?"":"تومان"}
           </span>
