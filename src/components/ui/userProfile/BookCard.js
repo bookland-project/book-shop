@@ -43,7 +43,7 @@ function BookCard(props) {
               </Heading>
               <HStack alignItems="center">
                 <span className="text-[#000015] text-[24px]">
-                {props.price===0?"رایگان":props.price}
+                {props.price===0?"رایگان": new Intl.NumberFormat().format(props.price)}
                 </span>
                 <span className="text-[#C8C8C8] text-[12px]">{props.price===0?"":"تومان"}</span>
               </HStack>

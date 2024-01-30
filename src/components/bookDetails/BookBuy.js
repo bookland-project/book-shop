@@ -37,7 +37,7 @@ function BookBuy(props) {
             <span className="text-[24px] font-extrabold">قیمت:</span>
             <HStack gap="5px">
               <span className="text-[24px] font-extrabold">
-                {props.data.price}
+              {new Intl.NumberFormat().format(props.data.price)}
               </span>
               <span className="text-[12px] font-extrabold text-[#C8C8C8]">
                 تومان
@@ -144,7 +144,7 @@ function BookBuy(props) {
                 <span className="text-[24px] font-extrabold">قیمت:</span>
                 <HStack gap="5px">
                   <span className="text-[24px] font-extrabold">
-                  {props.data.price===0?"رایگان":props.data.price}
+                  {props.data.price===0?"رایگان": new Intl.NumberFormat().format(props.data.price)}
                   </span>
                   <span className="text-[12px] font-extrabold text-[#C8C8C8]">
                   {props.data.price===0?"":"تومان"}
