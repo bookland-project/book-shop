@@ -63,8 +63,8 @@ function BuyModal(props) {
          <VStack align="stretch" gap={4}>
           <Heading fontSize="md">دارایی حساب شما :</Heading>
           <HStack justify="space-between">
-           <Text className={data && data.data===0?"#C8C8C8":"text-green-500"}>{data?data.data:0} تومان</Text>
-           <Link href={"/user/wallet"} fontSize="xs" color="blue.500">
+          <Text className={data && data.data===0?"#C8C8C8":"text-green-500"}>{data?data.data:0} تومان</Text>
+                     <Link href={"/user/wallet"} fontSize="xs" color="blue.500">
             شارژ حساب
            </Link>
           </HStack>
@@ -89,7 +89,7 @@ function BuyModal(props) {
           <HStack justify="space-between">
            <Heading fontSize="md">جمع کل</Heading>
            <Heading fontSize="md">{newPrice} تومان</Heading>
-          </HStack>
+                     </HStack>
           <button
             onClick={buyHandler}
             className="w-full h-[49px] bg-primary rounded-xl px-[44px] py-[10px] text-white text-[16px] font-medium"

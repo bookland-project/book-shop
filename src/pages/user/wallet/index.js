@@ -93,7 +93,7 @@ const Wallet = () => {
 						{isSuccess && (
 							<>
 								<span style={{ fontSize: "32px" }}>
-									&nbsp;{data.data}
+								&nbsp;{data.data}
 								</span>
 								<span
 									style={{
