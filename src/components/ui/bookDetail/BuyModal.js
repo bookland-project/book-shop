@@ -21,6 +21,7 @@ import { useRef } from 'react';
 import useBuyBook from '@/react-query/hooks/useBuyBook';
 import useShowToast from '../useShowToast';
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 
 function BuyModal(props) {
@@ -34,6 +35,7 @@ function BuyModal(props) {
   const showToast=useShowToast()
   const{mutate:calculateDiscount}=useGetDiscount(setNewPrice,setDiscountId,setDisountPercent)
   const{mutate}=useBuyBook(onClose)
+  const router=useRouter()
 
   
   
