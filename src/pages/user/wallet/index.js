@@ -33,7 +33,7 @@ const Wallet = () => {
 		data,
 		isLoading: walletInfoIsLoading,
 		isSuccess,
-		refetch,
+		refetch
 	} = useGetWalletInfo();
 	const [inputValue, setInputValue] = useState();
 	const [error, setError] = useState(false);
@@ -45,32 +45,21 @@ const Wallet = () => {
 
 	useEffect(() => {
 		if (router.query.Status && router.query.Status === "OK") {
-			showToast("شارژ کیف پول شما با موفقیت انجام شد", "success");
-			axios
-				.put(
-					`http://Localhost:5000/api/user/wallet/UpdateUserWallet${localStorage.getItem(
-						"id"
-					)}`,
-					{},
-					{
-						headers: {
-							Authorization: "Bearer " + token,
-						},
-					}
-				)
-				.then((res) => {
-					if (res.status === 200) {
-						refetch();
-					}
-				})
-				.catch((err) => console.log(err));
+			showToast("شارژ کیف پول شما با موفقیت انجام شد","success");
+			axios.put(`http://Localhost:5000/api/user/wallet/UpdateUserWallet${localStorage.getItem("id")}`,{},{headers: {
+				Authorization: "Bearer " + token,
+			},}).then(res=>{
+				if(res.status===200){
+					refetch()
+				}
+			}).catch(err=>console.log(err))
 			router.replace("/user/wallet");
 		}
 		if (router.query.Status && router.query.Status === "NOK") {
-			showToast("مشکلی در شارژ کیف پول بوجود آمده،لطفا دوباره تلاش کنید");
+			showToast("مشکلی در شارژ کیف پول بوجود آمده،لطفا دوباره تلاش کنید",);
 			router.replace("/user/wallet");
 		}
-	}, [router, showToast, token]);
+	},[router ,showToast ,token]);
 
 
 	const submitHandler = (e) => {
@@ -93,7 +82,7 @@ const Wallet = () => {
 						{isSuccess && (
 							<>
 								<span style={{ fontSize: "32px" }}>
-									&nbsp;{ new Intl.NumberFormat().format(data.data)}
+									&nbsp;{data.data}
 								</span>
 								<span
 									style={{
