@@ -34,7 +34,7 @@ function SuggestedBookItem(props) {
       <Divider />
       <CardFooter justifyContent="flex-end" pl="0">
         <Text  >
-          <span> {props.price}</span><span className="text-[12px] text-[#C8C8C8] font-extrabold">تومان</ span>
+          <span>{props.price}</span><span className="text-[12px] text-[#C8C8C8] font-extrabold">تومان</ span>
         </Text>
       </CardFooter>
     </Card>
